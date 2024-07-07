@@ -19,9 +19,11 @@ const submitButton = document.getElementById("submit"); //Get Submit button elem
 const result = document.getElementById("result");
 const resultText = document.getElementById("result-text"); // Get Result Element
 const guess = document.getElementById("guess"); // Get guess input box
-
 const resultSprite = document.getElementById("result-sprite"); // Store spite div
+
 const matches = document.getElementById("matches"); // Store Matches div
+const guessedSpriteDiv = document.getElementById("guessed-sprite");
+const guessedNameSpan = document.getElementById("guessedName");
 const matchType = document.getElementById("match-type");// Store Match Type Divs
 const matchDex = document.getElementById("match-dex");// Store Match Dex Divs
 const playAgain = document.getElementById("play-again");
@@ -31,6 +33,7 @@ const playAgain = document.getElementById("play-again");
 let guessedPokemonName = "";
 let guessedType = "";
 let guessedDex = "";
+let guessedSprite  = "";
 
 async function userGuess(){
 
@@ -58,6 +61,10 @@ async function userGuess(){
         guessedDex = guessData.id;
         console.log(guessedDex);
 
+        // Save Sprite
+        guessedSprite = guessData.sprites.front_default;
+        console.log(guessedSprite)
+
     }
     catch(error){
         console.error("Pokeguess not working", error);
@@ -81,6 +88,8 @@ async function fetchPokeData() {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
+
+        console.log(data);
 
         // Store Random Pokemon Name
         rand_pokemon = data.name;
@@ -171,8 +180,11 @@ function game(){
         resultText.innerHTML = "Correct!";
         resultSprite.innerHTML = `<img src=${sprite}></img>`
         submitButton.style.display = "none";
-        guess.style.display = "none";result.style.display = "flex";
-        matches.style.display = "grid";
+        guess.style.display = "none";
+        result.style.display = "flex";
+        matches.style.visibility = "visible";
+        guessedSpriteDiv.innerHTML = `<img src=${guessedSprite}></img>`
+        guessedNameSpan.innerText = guessedPokemonName;
         playAgain.style.display = "flex";
         dexCheck();
         typeCheck();
@@ -180,7 +192,9 @@ function game(){
     else {
         resultText.innerHTML = "Guess Again!";
         guess_count = guess_count + 1;
-        matches.style.display = "grid";
+        matches.style.visibility = "visible";
+        guessedSpriteDiv.innerHTML = `<img src=${guessedSprite}></img>`
+        guessedNameSpan.innerText = guessedPokemonName;
         resetValue();
         typeCheck();
         dexCheck();

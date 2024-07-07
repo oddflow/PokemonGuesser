@@ -27,19 +27,25 @@
                 <button type="submit" id="submit" form="form1" value="Submit">Submit</button>
             </div>
             <div id="answer">
+
                 <div id="result-text"></div>
+                <div id="result">
+                    <div id="result-sprite"></div>
+                </div>
+                <div id="play-again">
+                    <button id="pgButton" onClick="window.location.reload()">Play Again?</button>
+                </div>
             </div>
             <div id="matches">
+                <div class="grid_match" id="guessed-sprite"></div>
+                <div class="grid_match" id="guessedName"></div>
+                <div class="grid_match"></div>
                 <div class="grid_match" id="match-type">Type</div>
                 <div class="grid_match" id="match-dex">Pokedex # </div>
             </div>
-            <div id="result">
-                <div id="result-sprite"></div>
-            </div>
 
-            <div id="play-again">
-                <button id="pgButton" onClick="window.location.reload()">Play Again?</button>
-            </div>
+
+
         </div>
         
         <script src="app.js" async defer></script>
