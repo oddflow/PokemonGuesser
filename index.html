@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="title">
+                <p>PokeGuesser.io</p>
+            </div>
+            <div id="guess-counter">
+                Guess 0 of 10
+            </div>
+            <div class="form">
+                <form id="form1">
+                    <input type="text" id="guess" name="guess" placeholder="Enter Guess Here...">
+                </form>
+                <button type="submit" id="submit" form="form1" value="Submit">Submit</button>
+            </div>
+            <div id="answer">
+                <div id="result-text"></div>
+            </div>
+            <div id="matches">
+                <div class="grid_match" id="match-type">Type</div>
+                <div class="grid_match" id="match-dex">Pokedex # </div>
+            </div>
+            <div id="result">
+                <div id="result-sprite"></div>
+            </div>
+
+            <div id="play-again">
+                <button id="pgButton" onClick="window.location.reload()">Play Again?</button>
+            </div>
+        </div>
+        
+        <script src="app.js" async defer></script>
+    </body>
+</html>

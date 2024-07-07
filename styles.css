@@ -1,0 +1,119 @@
+
+/* ERG Color: #50859E */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #50859E;
+    --white: #F2F2F2;
+    --black: #232b2b;
+    --grey: #71797E;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url('JuliusSansOneAmended.ttf');
+}
+
+body {
+    background-color: var(--black);
+}
+
+.main {
+    margin-top: 50px;
+    text-align: center;
+    font-family: myFont;
+}
+
+.title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+#guess-counter {
+    color: var(--white);
+    margin-bottom: 5px;
+
+}
+
+input {
+    margin-top:10px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+    width: 250px;
+    font-size: 20px;
+    outline: 0;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: 20px;
+    width: 120px;
+    font-size: 20px;
+}
+
+#answer {
+    color: var(--white);
+    margin-top: 10px;
+}
+
+#matches {
+    margin: 20px;
+    color: white;
+    display: none;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    text-align: center;
+    
+
+}
+
+.grid_match {
+    background-color: var(--grey);
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width:200px;
+}
+
+#result{
+    display:none;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    color: var(--white);
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#result-sprite img {
+    height: 200px;
+    width: 200px;
+}
+
+#play-again {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#pgButton {
+    width: 200px;
+    height: 50px;
+}

@@ -1,0 +1,3 @@
+Potential API - https://www.omdbapi.com/
+
+IMDB is paid i think through AWS
