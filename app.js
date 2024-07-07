@@ -20,6 +20,7 @@ const result = document.getElementById("result");
 const resultText = document.getElementById("result-text"); // Get Result Element
 const guess = document.getElementById("guess"); // Get guess input box
 const resultSprite = document.getElementById("result-sprite"); // Store spite div
+const description = document.getElementById("description");
 
 const matches = document.getElementById("matches"); // Store Matches div
 const guessedSpriteDiv = document.getElementById("guessed-sprite");

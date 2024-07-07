@@ -34,6 +34,11 @@ body {
     color: var(--white);
 }
 
+.description {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
 #guess-counter {
     color: var(--white);
     margin-bottom: 5px;
