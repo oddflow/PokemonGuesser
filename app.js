@@ -134,27 +134,27 @@ function game(){
         if(dex === guessedDex){
             matchDex.style.backgroundColor = green;
             matchDex.style.color = white;
-            matchDex.innerHTML = "# " + guessedDex;
+            matchDex.innerHTML = "Dex # " + guessedDex;
         }
         else if(dex < 51 && guessedDex < 51){
             matchDex.style.backgroundColor = yellow;
             matchDex.style.color = black;
-            matchDex.innerHTML = "# " + guessedDex;
+            matchDex.innerHTML = "Dex # " + guessedDex;
         }
         else if(dex >=51 && dex < 101 && guessedDex >=51 && guessedDex < 101){
             matchDex.style.backgroundColor = yellow;
             matchDex.style.color = black;
-            matchDex.innerHTML = "# " + guessedDex;
+            matchDex.innerHTML = "Dex # " + guessedDex;
         }
         else if(dex >= 101 && guessedDex >= 101){
             matchDex.style.backgroundColor = yellow;
             matchDex.style.color = black;
-            matchDex.innerHTML = "# " + guessedDex;
+            matchDex.innerHTML = "Dex # " + guessedDex;
         }
         else{
             matchDex.style.backgroundColor = grey;
             matchDex.style.color = white;
-            matchDex.innerHTML = "PokeDex #"
+            matchDex.innerHTML = "Dex #" + guessedDex;
         }
     }
 
@@ -166,7 +166,7 @@ function game(){
         }
         else{
             matchType.style.backgroundColor = grey;
-            matchType.innerHTML = "Type";
+            matchType.innerHTML = guessedType;
         }
     }
 
@@ -178,6 +178,7 @@ function game(){
     // Check if guess is correct
     if(guessedPokemonName.toLowerCase() === rand_pokemon.toLowerCase()){
         resultText.innerHTML = "Correct!";
+        resultText.style.fontSize = "50px";
         resultSprite.innerHTML = `<img src=${sprite}></img>`
         submitButton.style.display = "none";
         guess.style.display = "none";
@@ -204,7 +205,10 @@ function game(){
 
     // If guess is 10 game over and stop
     if(guess_count === 11){
-        resultText.innerHTML = "Game Over!";
+        resultText.innerHTML = `Game Over!<br>It was ${rand_pokemon}, IDIOT!`;
+        resultText.style.fontSize = "50px";
+        result.style.display = "flex";
+        resultSprite.innerHTML = `<img src=${sprite}></img>`
         submitButton.style.display = "none";
         playAgain.style.display = "flex";
     }
