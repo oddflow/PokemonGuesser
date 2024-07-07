@@ -205,6 +205,7 @@ function game(){
 
     // If guess is 10 game over and stop
     if(guess_count === 11){
+        guess.style.display = "none";
         resultText.innerHTML = `Game Over!<br>It was ${rand_pokemon}, IDIOT!`;
         resultText.style.fontSize = "50px";
         result.style.display = "flex";
