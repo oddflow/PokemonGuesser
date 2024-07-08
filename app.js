@@ -20,7 +20,10 @@ const result = document.getElementById("result");
 const resultText = document.getElementById("result-text"); // Get Result Element
 const guess = document.getElementById("guess"); // Get guess input box
 const resultSprite = document.getElementById("result-sprite"); // Store spite div
-const description = document.getElementById("description");
+const gameDescription = document.getElementById("gameDescription");
+
+const hint = document.getElementById("hint");
+const hintDescription = document.getElementById("hint-description");
 
 const matches = document.getElementById("matches"); // Store Matches div
 const guessedSpriteDiv = document.getElementById("guessed-sprite");
@@ -120,6 +123,36 @@ async function fetchPokeData() {
 
 }
 
+let pokeDescription = "";
+
+async function fetchPokeDescription(){
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${rand_pokemon}`;
+
+    try {
+        const response = await fetch(url);
+        if(!response.ok){
+            throw new Error("Network response not ok " + response.statusText);
+        }
+        const data = await response.json();
+
+        console.log(data)
+
+        // Get first description of the pokemon
+        const description = data.flavor_text_entries[0].flavor_text;
+
+        pokeDescription = description;
+
+        console.log("This is description data");
+        console.log(description);
+
+
+
+    } catch(error) {
+        console.error("There has been a problem with your fetch operation:", error);
+    }
+}
+
+
 //Game Logic
 function game(){
     // Print Guess Counter
@@ -188,6 +221,7 @@ function game(){
         guessedSpriteDiv.innerHTML = `<img src=${guessedSprite}></img>`
         guessedNameSpan.innerText = guessedPokemonName;
         playAgain.style.display = "flex";
+        hint.style.visibility = "hidden";
         dexCheck();
         typeCheck();
     }
@@ -207,12 +241,31 @@ function game(){
     // If guess is 10 game over and stop
     if(guess_count === 11){
         guess.style.display = "none";
-        resultText.innerHTML = `Game Over!<br>It was ${rand_pokemon}, IDIOT!`;
+        resultText.innerHTML = `Game Over!<br>It was ${rand_pokemon}!`;
         resultText.style.fontSize = "50px";
         result.style.display = "flex";
         resultSprite.innerHTML = `<img src=${sprite}></img>`
         submitButton.style.display = "none";
         playAgain.style.display = "flex";
+        hint.style.visibility = "hidden";
+
+    }
+    else if(guess_count === 10){
+        hint.style.visibility = "visible";
+
+        hint.addEventListener('click', function(event){
+            event.preventDefault();
+            if(pokeDescription){
+                hintDescription.style.visibility = "visible";
+                hintDescription.innerHTML = pokeDescription;
+                hint.style.visibility = "hidden";
+
+            }
+            else{
+                console.error("Description no avail")
+            }
+        })
+
     }
 }
 
@@ -224,6 +277,7 @@ document.getElementById("form1").addEventListener("submit", async function(event
     //const guess = document.getElementById("guess").value;
     await userGuess();
     await fetchPokeData();
+    await fetchPokeDescription();
     game();
 });
 

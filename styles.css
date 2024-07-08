@@ -34,7 +34,7 @@ body {
     color: var(--white);
 }
 
-.description {
+.gameDescription {
     color: var(--white);
     margin-bottom: 20px;
 }
@@ -65,11 +65,25 @@ button {
     border-radius: 20px;
     width: 120px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 #answer {
     color: var(--white);
     margin-top: 10px;
+}
+
+#hint {
+    visibility: hidden;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+#hint-description {
+    visibility: hidden;
+    margin-top: 10px;
+
 }
 
 #matches {
