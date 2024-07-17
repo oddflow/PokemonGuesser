@@ -39,6 +39,8 @@ let guessedType = "";
 let guessedDex = "";
 let guessedSprite  = "";
 
+
+
 async function userGuess(){
 
     // Get Value of user input
@@ -208,6 +210,7 @@ function game(){
     function resetValue(){
         document.getElementById("form1").reset();
     }
+    
 
     // Check if guess is correct
     if(guessedPokemonName.toLowerCase() === rand_pokemon.toLowerCase()){
@@ -225,6 +228,7 @@ function game(){
         dexCheck();
         typeCheck();
     }
+
     else {
         resultText.innerHTML = "Guess Again!";
         guess_count = guess_count + 1;
